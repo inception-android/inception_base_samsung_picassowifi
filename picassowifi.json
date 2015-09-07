@@ -1,0 +1,50 @@
+{
+    "__extends__": "samsung.common", 
+    "recovery": {
+        "img": "img/recovery.img",
+        "stock": "img/recovery.img" 
+    }, 
+    "__config__": {
+        "host": {
+            "bin": {
+                "make_ext4fs": {
+                    "arch": {
+                        "x86_64": "extra/bin/make_ext4fs"
+                    }
+                }
+            }
+        },
+        "target": {
+            "device": {
+                "name": "picassowifi", 
+                "brand": "samsung", 
+                "platform": "exynos5", 
+                "board": "universal5420", 
+                "model": "SM-T520", 
+                "manufacturer": "samsung"
+            }, 
+            "mount": {
+                "cache": {
+                    "mount": "/cache", 
+                    "fs": "ext4", 
+                    "dev": "/dev/block/mmcblk0p19"
+                }, 
+                "boot": {
+                    "mount": "/boot", 
+                    "fs": "emmc", 
+                    "dev": "/dev/block/mmcblk0p9"
+                }, 
+                "system": {
+                    "mount": "/system", 
+                    "fs": "ext4", 
+                    "dev": "/dev/block/mmcblk0p18"
+                }, 
+                "recovery": {
+                    "mount": "/recovery", 
+                    "fs": "emmc", 
+                    "dev": "/dev/block/mmcblk0p10"
+                }
+            }
+        }
+    }
+}
